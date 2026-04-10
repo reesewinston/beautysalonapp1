@@ -197,17 +197,23 @@ class SalonApp:
         self.service_list.pack(fill="both", expand=True, padx=20, pady=(8, 18))
         self.service_list.bind("<<ListboxSelect>>", self.select_service)
 
+        
+        
         tk.Button(
             self.left_panel,
-            text="refresh categories",
+            text="Refresh Categories",
             command=self.load_categories,
-            bg=self.bg_dark,
-            fg="white",
+            bg="#3a2a1f",
+            fg="#ffffff",
+            activebackground="#5a4030",
+            activeforeground="#000000",
             relief="flat",
             font=("helvetica", 10, "bold"),
             padx=10,
             pady=12,
-            cursor="hand2"
+            cursor="hand2",
+            highlightthickness=1,
+            highlightbackground="#d6c5b4"
         ).pack(fill="x", padx=20, pady=(0, 20))
 
     def build_right_panel(self):
