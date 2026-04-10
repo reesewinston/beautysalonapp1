@@ -406,17 +406,33 @@ class SalonApp:
             fg=self.text_dark
         ).pack(anchor="w", pady=(14, 4))
 
+        today = date.today()
+        default_date = date(2026, today.month, today.day)
+
         self.date_picker = DateEntry(
             field_frame,
             width=26,
+            date_pattern="yyyy-mm-dd",
+            year=default_date.year,
+            month=default_date.month,
+            day=default_date.day,
+            mindate=date(2026, 1, 1),
             background=self.bg_dark,
             foreground="white",
             borderwidth=1,
-            date_pattern="yyyy-mm-dd",
-            year=2026,
-            month=4,
-            day=1,
-            mindate=date(2026, 4, 1)
+            normalbackground=self.white,
+            normalforeground=self.text_dark,
+            weekendbackground=self.input_bg,
+            weekendforeground=self.text_dark,
+            othermonthbackground=self.bg_soft,
+            othermonthforeground=self.text_muted,
+            selectbackground=self.bg_dark,
+            selectforeground="white",
+            headersbackground=self.bg_card,
+            headersforeground=self.text_dark,
+            disabledbackground=self.bg_soft,
+            disabledforeground=self.text_muted,
+            font=("helvetica", 10)
         )
         self.date_picker.pack(fill="x", ipady=4)
         self.date_picker.bind("<<DateEntrySelected>>", self.update_time_options)
